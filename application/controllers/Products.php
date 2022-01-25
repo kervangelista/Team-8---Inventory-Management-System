@@ -11,7 +11,9 @@ class Products extends CI_Controller {
 
     $output['items'] = $items;
 
+    $this->load->view('templates/header');
 		$this->load->view('products/getProduct', $output);
+    $this->load->view('templates/footer');
 	}
 
   public function viewInactive () {
@@ -21,7 +23,9 @@ class Products extends CI_Controller {
 
     $output['items'] = $items;
 
+    $this->load->view('templates/header');
 		$this->load->view('products/getProduct', $output);
+    $this->load->view('templates/footer');
 
   }
 
@@ -35,8 +39,10 @@ class Products extends CI_Controller {
       $this->product_model->addItem($data);
       redirect('/products');
     }
-    
+    $this->load->view('templates/header');
     $this->load->view('products/addProduct');
+    $this->load->view('templates/footer');
+    
   }
 
   public function viewItem($product_ID = null) {
@@ -46,7 +52,10 @@ class Products extends CI_Controller {
 
     $output['item'] = $item[0]; 
 
+    $this->load->view('templates/header');
     $this->load->view("products/viewProduct", $output);
+    $this->load->view('templates/footer');
+    
   }
 
   public function updateItem(){
