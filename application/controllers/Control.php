@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Control extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -67,8 +67,7 @@ class Welcome extends CI_Controller {
             );
 
             $this->g_model->insert_data($data);
-
-            redirect(base_url() . "Welcome/inserted");
+            redirect(base_url() . "Control/inserted");
 
         }
 
@@ -82,4 +81,10 @@ class Welcome extends CI_Controller {
 	public function inserted(){
 		$this->list();
 	}
+
+    public function delete_supplier($supplier_ID)
+    {
+        $this->g_model->delete_suppliers($supplier_ID);
+        redirect("Control/list");
+    }
 }
